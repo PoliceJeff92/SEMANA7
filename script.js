@@ -1,70 +1,66 @@
-// Espera a que todo el contenido del DOM esté cargado antes de ejecutar el script
-document.addEventListener('DOMContentLoaded', () => {
+// Array to hold our product data
+let products = [
+    {
+        name: "Sistema de Riego Automatizado",
+        price: "$150.00",
+        description: "Controla la humedad del suelo y riega tus plantas automáticamente."
+    },
+    {
+        name: "Sensores de Nutrientes para Suelo",
+        price: "$85.00",
+        description: "Monitorea los niveles de nutrientes esenciales para optimizar el crecimiento."
+    },
+    {
+        name: "Luces LED de Crecimiento Inteligentes",
+        price: "$120.00",
+        description: "Ajuste automático de espectro y temporizador para cualquier tipo de planta."
+    },
+    {
+        name: "Monitor de Clima para Invernaderos",
+        price: "$200.00",
+        description: "Registra temperatura, humedad y CO2 para un ambiente ideal."
+    }
+];
 
-    // 1. Array inicial de productos basado en el PDF "VerdeTech Quito"
-    const products = [
-        {
-            name: "Sistema VerdeTech Pro",
-            price: 249.99,
-            [cite_start]description: "Kit modular de huerto urbano inteligente. Incluye estructura vertical, riego automatizado, sensores y acceso a la app. [cite: 223, 224, 225]"
-        },
-        {
-            name: "Servicio de Instalación y Capacitación",
-            price: 49.99,
-            [cite_start]description: "Instalación profesional del sistema y capacitación personalizada sobre el uso del equipo y la aplicación móvil. [cite: 227]"
-        },
-        {
-            name: "Paquete de Semillas Orgánicas",
-            price: 15.50,
-            [cite_start]description: "Paquete inicial con una selección de semillas orgánicas y nutrientes para comenzar tu cultivo. [cite: 226]"
-        }
-    ];
+// Get references to HTML elements
+const productList = document.getElementById('productList');
+const addProductButton = document.getElementById('addProductButton');
 
-    // 2. Referencias a los elementos del DOM
-    const productListContainer = document.getElementById('product-list');
-    const addProductBtn = document.getElementById('add-product-btn');
+// Function to render all products from the 'products' array
+function renderProducts() {
+    // Clear existing list items to prevent duplicates when re-rendering
+    productList.innerHTML = ''; 
 
-    // 3. Función para renderizar (dibujar) los productos en la lista
-    const renderProducts = () => {
-        // Limpiamos la lista para evitar duplicados al re-renderizar
-        productListContainer.innerHTML = '';
+    products.forEach(product => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <h3>${product.name}</h3>
+            <p class="price">Precio: ${product.price}</p>
+            <p>${product.description}</p>
+        `;
+        productList.appendChild(listItem);
+    });
+}
 
-        // Iteramos sobre el arreglo de productos
-        products.forEach(product => {
-            // Creamos un elemento <li> para cada producto
-            const listItem = document.createElement('li');
-
-            // Usamos una plantilla de texto (template literal) para crear el HTML interno
-            listItem.innerHTML = `
-                <h3>${product.name}</h3>
-                <p><strong>Precio:</strong> $${product.price.toFixed(2)}</p>
-                <p>${product.description}</p>
-            `;
-
-            // Añadimos el nuevo <li> a la lista <ul>
-            productListContainer.appendChild(listItem);
-        });
+// Function to add a new product (example)
+function addNewProduct() {
+    // For simplicity, we'll add a hardcoded new product.
+    // In a real application, you might use a form to get user input.
+    const newProduct = {
+        name: `Producto Nuevo ${products.length + 1}`, // Unique name for demonstration
+        price: `$${(Math.random() * 50 + 50).toFixed(2)}`, // Random price between 50 and 100
+        description: "Este es un nuevo producto genérico añadido dinámicamente."
     };
 
-    // 4. Función para agregar un nuevo producto
-    const addNewProduct = () => {
-        // Definimos un nuevo producto de ejemplo
-        const newProduct = {
-            name: "Soporte Técnico Anual",
-            price: 75.00,
-            [cite_start]description: "Servicio de soporte técnico post-venta para garantizar la satisfacción y el funcionamiento continuo. [cite: 227]"
-        };
+    products.push(newProduct); // Add the new product to our array
+    renderProducts(); // Re-render the entire list to show the new product
+}
 
-        // Agregamos el nuevo producto al final del arreglo
-        products.push(newProduct);
+// --- Event Listeners and Initial Load ---
 
-        // Volvemos a renderizar la lista completa para que aparezca el nuevo producto
-        renderProducts();
-    };
+// 1. Initial product rendering when the page loads
+// This ensures products are displayed automatically as per requirements.
+document.addEventListener('DOMContentLoaded', renderProducts);
 
-    // 5. Asignamos la función addNewProduct al evento 'click' del botón
-    addProductBtn.addEventListener('click', addNewProduct);
-
-    // 6. Renderizamos la lista inicial de productos cuando la página carga por primera vez
-    renderProducts();
-});
+// 2. Attach click event listener to the "Agregar Nuevo Producto" button
+addProductButton.addEventListener('click', addNewProduct);

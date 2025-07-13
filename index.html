@@ -4,25 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerdeTech Quito - Productos</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinear arriba en lugar de centrar verticalmente */
+            min-height: 100vh; /* Usar min-height para asegurar que ocupe al menos la altura completa de la ventana */
+            margin: 0;
+            padding: 20px; /* Añadir algo de relleno alrededor del contenido */
+            box-sizing: border-box; /* Incluir el relleno en el ancho y alto total del elemento */
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        /* Las siguientes reglas CSS se ajustan ya que no hay imagen de logo */
+        .header h1 {
+            color: #4CAF50;
+            font-size: 2.5em; /* Un poco más grande al no haber imagen */
+            margin: 0;
+            display: block; /* Para que ocupe su propia línea si es necesario */
+        }
+        .header p {
+            color: #666;
+            margin-top: 5px;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        #addProductButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            margin-bottom: 30px; /* Espacio debajo del botón */
+        }
+        #addProductButton:hover {
+            background-color: #45a049;
+        }
+        #productList {
+            list-style: none; /* Quitar los puntos de la lista */
+            padding: 0;
+            text-align: left; /* Alinear los elementos de la lista a la izquierda */
+        }
+        #productList li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        #productList li h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        #productList li p {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+        #productList li .price {
+            font-weight: bold;
+            color: #2e8b57; /* Un verde ligeramente más oscuro para el precio */
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
-
-    <div id="container">
-        <header>
-            <h1>🌱 VerdeTech Quito</h1>
+    <div class="container">
+        <div class="header">
+            <h1>VerdeTech Quito</h1>
             <p>Cultiva tu futuro, siembra inteligencia</p>
-        </header>
-        
-        <main>
-            <h2>Nuestros Productos y Servicios</h2>
-            <ul id="product-list"></ul>
-            
-            <button id="add-product-btn">Agregar Nuevo Producto</button>
-        </main>
+        </div>
+
+        <h2>Nuestros Productos y Servicios</h2>
+
+        <button id="addProductButton">Agregar Nuevo Producto</button>
+
+        <ul id="productList">
+            </ul>
     </div>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
