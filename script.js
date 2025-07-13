@@ -4,27 +4,27 @@ let products = [
         name: "Sistema de Riego Automatizado",
         price: "$150.00",
         description: "Controla la humedad del suelo y riega tus plantas automáticamente."
-    },
+    }, // <--- ¡Asegúrate de que esta coma esté aquí!
     {
         name: "Sensores de Nutrientes para Suelo",
         price: "$85.00",
         description: "Monitorea los niveles de nutrientes esenciales para optimizar el crecimiento."
-    },
+    }, // <--- ¡Asegúrate de que esta coma esté aquí!
     {
         name: "Luces LED de Crecimiento Inteligentes",
         price: "$120.00",
         description: "Ajuste automático de espectro y temporizador para cualquier tipo de planta."
-    },
+    }, // <--- ¡Asegúrate de que esta coma esté aquí!
     {
         name: "Monitor de Clima para Invernaderos",
         price: "$200.00",
         description: "Registra temperatura, humedad y CO2 para un ambiente ideal."
-    }
+    } // <--- Después del último elemento no es estrictamente necesaria, pero es buena práctica (trailing comma)
 ];
 
 // Get references to HTML elements
-const productList = document.getElementById('productList'); // Usa 'productList'
-const addProductButton = document.getElementById('addProductButton'); // Usa 'addProductButton'
+const productList = document.getElementById('productList');
+const addProductButton = document.getElementById('addProductButton');
 
 // Function to render all products from the 'products' array
 function renderProducts() {
