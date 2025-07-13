@@ -23,8 +23,8 @@ let products = [
 ];
 
 // Get references to HTML elements
-const productList = document.getElementById('productList');
-const addProductButton = document.getElementById('addProductButton');
+const productList = document.getElementById('productList'); // Usa 'productList'
+const addProductButton = document.getElementById('addProductButton'); // Usa 'addProductButton'
 
 // Function to render all products from the 'products' array
 function renderProducts() {

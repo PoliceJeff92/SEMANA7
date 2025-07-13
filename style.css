@@ -4,66 +4,95 @@ body {
     color: #333;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Cambiado a flex-start para alinear arriba como en el HTML original */
     padding: 20px;
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la vista */
+    margin: 0; /* Elimina márgenes por defecto del body */
+    box-sizing: border-box;
 }
 
-#container {
+.container { /* Usar la clase .container definida en el HTML */
     width: 100%;
     max-width: 800px;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el contenido dentro del contenedor */
 }
 
-header {
+.header { /* Usar la clase .header definida en el HTML */
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
-h1 {
+.header h1 { /* Para el h1 dentro del header */
     color: #2e7d32; /* Verde oscuro */
+    font-size: 2.5em; /* Tamaño consistente con la última versión HTML */
+    margin: 0;
+    display: block;
 }
 
-h2 {
+.header p { /* Para el párrafo dentro del header */
+    color: #666;
+    margin-top: 5px;
+}
+
+h2 { /* Para el h2 global de "Nuestros Productos y Servicios" */
     color: #43a047; /* Verde más claro */
+    margin-bottom: 20px;
 }
 
-#product-list {
+#productList { /* CORREGIDO: Usar #productList para la lista */
     list-style-type: none;
     padding: 0;
+    text-align: left; /* Para alinear el contenido de la lista a la izquierda */
 }
 
-#product-list li {
+#productList li { /* CORREGIDO: Para los elementos de la lista */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Añadido para un mejor estilo */
 }
 
-#product-list h3 {
+#productList li h3 { /* Para los títulos de los productos */
     margin-top: 0;
     color: #333;
+    margin-bottom: 8px;
 }
 
-#add-product-btn {
+#productList li p { /* Para los párrafos de descripción */
+    color: #555;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+
+#productList li .price { /* Para el precio específico */
+    font-weight: bold;
+    color: #2e8b57;
+    font-size: 1.1em;
+}
+
+
+#addProductButton { /* CORREGIDO: Usar #addProductButton para el botón */
     display: block;
-    width: 100%;
-    padding: 15px;
+    width: auto; /* Cambiado de 100% para que se ajuste al contenido si no quieres que ocupe todo el ancho */
+    padding: 12px 25px; /* Ajustado para que coincida con el HTML original y se vea bien */
     background-color: #4CAF50; /* Verde de éxito */
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1.1em; /* Ajustado */
     cursor: pointer;
-    margin-top: 20px;
+    margin: 20px auto 30px auto; /* Centrar el botón y añadir margen inferior */
     transition: background-color 0.3s;
 }
 
-#add-product-btn:hover {
+#addProductButton:hover {
     background-color: #45a049;
 }
